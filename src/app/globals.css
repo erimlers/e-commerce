@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #ece7db;
+  --color-paper: #f7f5f1;
   --color-ink: #1f241c;
-  --color-metal: #7a7c72;
+  --color-metal: #5c5e56;
   --color-olive: #3f4f36;
-  --color-olive-soft: #dfe6d4;
+  --color-olive-soft: #e7ebe1;
   --font-serif: var(--font-calder-serif), ui-serif, Georgia, serif;
   --font-sans: var(--font-calder-sans), ui-sans-serif, system-ui, sans-serif;
 
@@ -61,6 +61,13 @@ textarea {
   min-height: var(--spacing-touch);
   border-radius: var(--radius-lg);
   -webkit-tap-highlight-color: transparent;
+}
+
+button.promo-dot {
+  min-height: 0.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border-radius: 999px;
 }
 
 @media (hover: none) {
