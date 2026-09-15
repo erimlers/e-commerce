@@ -34,7 +34,7 @@ export function AccountMenu({ user, onLogout, onNavigate }) {
       <Link
         href="/login"
         onClick={onNavigate}
-        className="hidden h-touch items-center rounded-full px-4 font-sans text-sm text-ink md:inline-flex"
+        className="hidden h-touch items-center rounded-full px-4 font-sans text-sm text-olive md:inline-flex"
       >
         Giriş
       </Link>
