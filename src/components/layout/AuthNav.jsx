@@ -41,6 +41,11 @@ export function AuthNav() {
       <Link href="/account/orders" className="hover:text-ink">
         {user.name}
       </Link>
+      {user.role === "admin" ? (
+        <Link href="/admin" className="hover:text-ink">
+          Admin
+        </Link>
+      ) : null}
       <button type="button" onClick={logout} className="hover:text-ink">
         Çıkış
       </button>
