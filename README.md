@@ -15,3 +15,5 @@ npm run dev
 
 API: `http://localhost:8080`  
 Sağlık: `GET http://localhost:8080/health` → `{ "ok": true, "db": "up" }`
+
+Admin seed: `admin@calder.test` / `.env` içindeki `ADMIN_SEED_PASSWORD`
