@@ -9,5 +9,6 @@ export function serializeProduct(doc) {
     images: doc.images,
     variants: doc.variants,
     featured: doc.featured,
+    published: doc.published,
   };
 }

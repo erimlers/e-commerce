@@ -5,6 +5,7 @@ import productRoutes from "./modules/products/product.routes.js";
 import authRoutes from "./modules/auth/auth.routes.js";
 import cartRoutes from "./modules/cart/cart.routes.js";
 import orderRoutes from "./modules/orders/order.routes.js";
+import adminRoutes from "./modules/admin/admin.routes.js";
 import { errorHandler, notFound } from "./middleware/errorHandler.js";
 
 export function createApp() {
@@ -19,6 +20,7 @@ export function createApp() {
   app.use("/auth", authRoutes);
   app.use("/cart", cartRoutes);
   app.use("/orders", orderRoutes);
+  app.use("/admin", adminRoutes);
   app.use("/products", productRoutes);
   app.use(notFound);
   app.use(errorHandler);
