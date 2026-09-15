@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { IconChevronLeft, IconChevronRight } from "@/components/layout/icons";
+import { PageWidth } from "@/components/layout/PageWidth";
 import { promoSlides } from "@/lib/promo";
 
 const INTERVAL_MS = 5500;
@@ -36,6 +37,8 @@ export function PromoCarousel() {
     return () => window.clearInterval(timer);
   }, [last, paused]);
 
+  const slide = promoSlides[index];
+
   return (
     <section
       className="relative overflow-hidden bg-ink"
@@ -58,58 +61,60 @@ export function PromoCarousel() {
         className="flex transition-transform duration-700 ease-out motion-reduce:transition-none"
         style={{ transform: `translateX(-${index * 100}%)` }}
       >
-        {promoSlides.map((slide, slideIndex) => (
-          <article key={slide.href} className="relative min-w-full" aria-hidden={slideIndex !== index}>
+        {promoSlides.map((item, slideIndex) => (
+          <article key={item.href} className="relative min-w-full" aria-hidden={slideIndex !== index}>
             <div className="relative h-[58vw] min-h-56 max-h-[32rem] md:h-[42vw] md:min-h-80 md:max-h-[36rem]">
-              <img src={slide.image} alt={slide.alt} className="h-full w-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/35 to-ink/10" />
-              <div className="absolute inset-0 flex flex-col justify-end px-5 pb-12 md:px-20 md:pb-16 lg:px-24">
-                <p className="font-sans text-[11px] tracking-[0.32em] text-paper/80 uppercase">{slide.eyebrow}</p>
-                <h2 className="mt-3 max-w-xl font-serif text-4xl leading-[0.95] text-paper md:text-6xl">{slide.title}</h2>
-                <p className="mt-4 max-w-md font-sans text-sm leading-6 text-paper/85 md:text-base">{slide.text}</p>
-                <Link
-                  href={slide.href}
-                  tabIndex={slideIndex === index ? 0 : -1}
-                  className="mt-6 inline-flex min-h-touch w-fit items-center rounded-full bg-paper px-6 font-sans text-sm text-ink"
-                >
-                  {slide.cta}
-                </Link>
-              </div>
+              <img src={item.image} alt={item.alt} className="h-full w-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-ink/25 to-ink/5" />
             </div>
           </article>
         ))}
       </div>
 
-      <button
-        type="button"
-        className="absolute top-1/2 left-3 z-10 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-paper/90 text-ink md:inline-flex"
-        aria-label="Önceki slayt"
-        onClick={() => go(index - 1)}
-      >
-        <IconChevronLeft />
-      </button>
-      <button
-        type="button"
-        className="absolute top-1/2 right-3 z-10 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-paper/90 text-ink md:inline-flex"
-        aria-label="Sonraki slayt"
-        onClick={() => go(index + 1)}
-      >
-        <IconChevronRight />
-      </button>
-
-      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
-        {promoSlides.map((slide, slideIndex) => (
-          <button
-            key={slide.href}
-            type="button"
-            className={`promo-dot transition ${
-              slideIndex === index ? "w-7 bg-paper" : "w-2 bg-paper/45"
-            }`}
-            aria-label={`${slide.eyebrow} slaytına geç`}
-            aria-current={slideIndex === index ? "true" : undefined}
-            onClick={() => go(slideIndex)}
-          />
-        ))}
+      <div className="pointer-events-none absolute inset-0">
+        <PageWidth className="flex h-full flex-col justify-end pb-8 md:pb-10">
+          <p className="font-sans text-[11px] tracking-[0.32em] text-paper/80 uppercase">{slide.eyebrow}</p>
+          <h2 className="mt-3 max-w-lg font-serif text-4xl leading-[0.95] text-paper md:text-6xl">{slide.title}</h2>
+          <p className="mt-4 max-w-md font-sans text-sm leading-6 text-paper/85 md:text-base">{slide.text}</p>
+          <div className="pointer-events-auto mt-6 flex flex-wrap items-center gap-3">
+            <Link
+              href={slide.href}
+              className="inline-flex min-h-touch items-center rounded-full bg-paper px-6 font-sans text-sm text-ink"
+            >
+              {slide.cta}
+            </Link>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-paper/90 text-ink"
+                aria-label="Önceki slayt"
+                onClick={() => go(index - 1)}
+              >
+                <IconChevronLeft />
+              </button>
+              <button
+                type="button"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-paper/90 text-ink"
+                aria-label="Sonraki slayt"
+                onClick={() => go(index + 1)}
+              >
+                <IconChevronRight />
+              </button>
+            </div>
+          </div>
+          <div className="pointer-events-auto mt-6 flex w-fit items-center gap-2 rounded-full bg-ink/40 px-2.5 py-1.5">
+            {promoSlides.map((item, slideIndex) => (
+              <button
+                key={item.href}
+                type="button"
+                className={`promo-dot ${slideIndex === index ? "bg-paper" : "bg-paper/35"}`}
+                aria-label={`${item.eyebrow} slaytına geç`}
+                aria-current={slideIndex === index ? "true" : undefined}
+                onClick={() => go(slideIndex)}
+              />
+            ))}
+          </div>
+        </PageWidth>
       </div>
     </section>
   );

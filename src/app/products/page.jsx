@@ -1,14 +1,15 @@
 import { StorefrontShell } from "@/components/layout/StorefrontShell";
 import { ProductCard } from "@/components/product/ProductCard";
 import { api } from "@/lib/api";
+import { catalogProducts } from "@/lib/catalog";
 
 export default async function ProductsPage() {
-  let products = [];
+  let products = catalogProducts;
   try {
     const data = await api("/products");
-    products = data.products || [];
+    if (data.products?.length) products = data.products;
   } catch {
-    products = [];
+    products = catalogProducts;
   }
 
   return (

@@ -2,25 +2,27 @@ import { notFound } from "next/navigation";
 import { StorefrontShell } from "@/components/layout/StorefrontShell";
 import { AddToCart } from "@/components/cart/AddToCart";
 import { api } from "@/lib/api";
+import { getCatalogProduct } from "@/lib/catalog";
 import { formatPrice } from "@/lib/money";
 
 export default async function ProductDetailPage({ params }) {
   const { slug } = await params;
-  let product;
+  let product = getCatalogProduct(slug);
   try {
     const data = await api(`/products/${slug}`);
-    product = data.product;
+    if (data.product) product = data.product;
   } catch (error) {
-    if (error.status === 404) notFound();
-    throw error;
+    if (!product && error.status === 404) notFound();
   }
+
+  if (!product) notFound();
 
   const image = product.images?.[0];
 
   return (
     <StorefrontShell>
       <main className="grid gap-10 pb-24 pt-8 md:grid-cols-2 md:gap-14 md:pt-12">
-        <div className="border border-olive/15 bg-ink/5">
+        <div className="overflow-hidden rounded-2xl bg-olive-soft/40">
           {image ? (
             <img src={image} alt={product.name} className="aspect-[4/5] h-full w-full object-cover" />
           ) : null}
