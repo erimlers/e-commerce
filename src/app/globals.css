@@ -6,25 +6,75 @@
   --color-metal: #8a8175;
   --font-serif: var(--font-calder-serif), ui-serif, Georgia, serif;
   --font-sans: var(--font-calder-sans), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-xs: 0.75rem;
+  --radius-sm: 1rem;
+  --radius-md: 1.25rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 1.75rem;
+  --radius-2xl: 2.25rem;
+  --radius-3xl: 2.75rem;
+  --radius-4xl: 3.25rem;
+
+  --spacing-touch: 2.75rem;
+  --spacing-safe-t: env(safe-area-inset-top, 0px);
+  --spacing-safe-r: env(safe-area-inset-right, 0px);
+  --spacing-safe-b: env(safe-area-inset-bottom, 0px);
+  --spacing-safe-l: env(safe-area-inset-left, 0px);
+
+  --shadow-soft: 0 8px 28px rgb(28 25 23 / 0.08);
+  --shadow-sheet: 0 -12px 40px rgb(28 25 23 / 0.12);
 }
 
 html,
 body {
   min-height: 100%;
+  min-height: 100dvh;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   font-family: var(--font-sans);
   background-color: var(--color-paper);
   color: var(--color-ink);
+  padding-left: var(--spacing-safe-l);
+  padding-right: var(--spacing-safe-r);
 }
 
 ::selection {
-  background: #1c1917;
-  color: #f4f1ea;
+  background: var(--color-ink);
+  color: var(--color-paper);
 }
 
 a,
 button {
   cursor: pointer;
+}
+
+button,
+input,
+select,
+textarea {
+  min-height: var(--spacing-touch);
+  border-radius: var(--radius-lg);
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (hover: none) {
+  button:active,
+  a:active {
+    opacity: 0.72;
+  }
+}
+
+@utility touch-target {
+  min-width: var(--spacing-touch);
+  min-height: var(--spacing-touch);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
 }
