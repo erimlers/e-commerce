@@ -38,7 +38,7 @@ export function AuthNav() {
 
   return (
     <>
-      <Link href="/account" className="hover:text-ink">
+      <Link href="/account/orders" className="hover:text-ink">
         {user.name}
       </Link>
       <button type="button" onClick={logout} className="hover:text-ink">
