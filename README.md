@@ -9,6 +9,7 @@ MongoDB `127.0.0.1:27017` üzerinde olmalı. Docker varsa: `docker compose up -d
 ```bash
 cp .env.example .env
 npm install
+npm run seed
 npm run dev
 ```
 
