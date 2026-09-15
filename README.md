@@ -1,5 +1,5 @@
-# e-commerce (frontend)
+# e-commerce (backend)
 
-This branch (`main`) is the storefront: catalog, product pages, cart, and checkout UI.
+This branch (`backend`) is the API: products, users, cart, orders, and payments.
 
-The API lives on the `backend` branch in the same repo: https://github.com/erimlers/e-commerce/tree/backend
+The storefront lives on `main`: https://github.com/erimlers/e-commerce
