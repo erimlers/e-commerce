@@ -13,7 +13,7 @@ export function ProductCard({ product }) {
             Çok satan
           </span>
         ) : null}
-        <div className="aspect-[4/3] overflow-hidden bg-olive-soft/30">
+        <div className="aspect-[3/4] overflow-hidden bg-olive-soft/30">
           {image ? (
             <img
               src={image}
@@ -23,9 +23,9 @@ export function ProductCard({ product }) {
           ) : null}
         </div>
       </Link>
-      <div className="flex flex-1 flex-col px-3.5 py-3">
+      <div className="flex flex-1 flex-col px-2.5 py-2.5">
         <Link href={`/products/${product.slug}`}>
-          <h3 className="font-serif text-lg leading-snug tracking-wide">{product.name}</h3>
+          <h3 className="font-serif text-base leading-snug tracking-wide">{product.name}</h3>
         </Link>
         <p className="mt-1 font-sans text-sm text-ink">{formatPrice(product.price, product.currency)}</p>
         <div className="mt-3 grid grid-cols-2 gap-2">

@@ -20,7 +20,7 @@ export default async function ProductsPage() {
         <p className="mt-4 max-w-lg font-sans text-sm leading-7 text-metal">
           Altı obje. Filtre yok. Her parça aynı dikiş dili.
         </p>
-        <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 lg:gap-4">
+        <div className="mx-auto mt-10 grid max-w-5xl grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
           {products.length ? (
             products.map((product) => <ProductCard key={product.id} product={product} />)
           ) : (
