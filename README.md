@@ -1,11 +1,5 @@
-# e-commerce
+# e-commerce (frontend)
 
-Monorepo: storefront and API live on `main` in separate folders.
+This branch (`main`) is the storefront: catalog, product pages, cart, and checkout UI.
 
-```
-e-commerce/
-  frontend/   # customer-facing app
-  backend/    # API, auth, orders, catalog
-```
-
-Work on both sides in the same branch. Open PRs against `main`.
+The API lives on the `backend` branch in the same repo: https://github.com/erimlers/e-commerce/tree/backend
