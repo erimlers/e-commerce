@@ -3,6 +3,7 @@ import { PageWidth } from "@/components/layout/PageWidth";
 import { shopCatalog } from "@/lib/nav";
 
 const customerLinks = [
+  { href: "/about", label: "Hakkımızda" },
   { href: "/cart", label: "Sepet" },
   { href: "/checkout", label: "Ödeme" },
   { href: "/account/orders", label: "Siparişlerim" },
@@ -36,7 +37,7 @@ export function SiteFooter() {
           <div>
             <p className="font-serif text-2xl tracking-[0.28em]">CALDER</p>
             <p className="mx-auto mt-4 max-w-xs font-sans text-sm leading-6 text-paper/80 md:mx-0">
-              Unisex deri objeler. Az parça, uzun ömür. İstanbul’dan, atölyeden.
+              Unisex deri objeler. Az parça, uzun ömür. Balıkesir’den, atölyeden.
             </p>
           </div>
           <FooterColumn title="Mağaza" links={shopCatalog} />
@@ -44,7 +45,7 @@ export function SiteFooter() {
           <div>
             <p className="font-sans text-xs tracking-[0.2em] text-olive-soft uppercase">İletişim</p>
             <ul className="mt-4 space-y-2 font-sans text-sm text-paper/90">
-              <li>İstanbul, Türkiye</li>
+              <li>Balıkesir, Türkiye</li>
               <li>
                 <a href="mailto:merhaba@calder.test" className="transition hover:text-paper">
                   merhaba@calder.test
@@ -58,7 +59,6 @@ export function SiteFooter() {
         </div>
         <div className="mt-12 flex flex-col gap-3 border-t border-paper/15 pt-6 md:flex-row md:items-center md:justify-between">
           <p className="font-sans text-xs text-paper/70">© {new Date().getFullYear()} CALDER. Tüm hakları saklıdır.</p>
-          <p className="font-sans text-xs text-paper/70">Sahte ödeme. Gerçek tahsilat yok.</p>
         </div>
       </PageWidth>
     </footer>

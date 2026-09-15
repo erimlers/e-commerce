@@ -7,16 +7,18 @@ export function ProductCard({ product }) {
   return (
     <article>
       <Link href={`/products/${product.slug}`} className="group block">
-        <div className="aspect-[4/5] overflow-hidden bg-ink/5">
-          {image ? (
-            <img
-              src={image}
-              alt={product.name}
-              className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-            />
-          ) : null}
+        <div className="overflow-hidden border border-olive/15 bg-ink/5">
+          <div className="aspect-[4/5] overflow-hidden">
+            {image ? (
+              <img
+                src={image}
+                alt={product.name}
+                className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+              />
+            ) : null}
+          </div>
         </div>
-        <div className="mt-5 flex items-baseline justify-between gap-4">
+        <div className="mt-4 flex items-baseline justify-between gap-4">
           <h2 className="font-serif text-2xl tracking-wide">{product.name}</h2>
           <p className="font-sans text-sm text-metal">{formatPrice(product.price, product.currency)}</p>
         </div>

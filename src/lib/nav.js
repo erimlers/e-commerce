@@ -1,4 +1,7 @@
-export const shopNav = [{ href: "/products", label: "Ürünler" }];
+export const shopNav = [
+  { href: "/products", label: "Ürünler" },
+  { href: "/about", label: "Hakkımızda" },
+];
 
 export const shopCatalog = [
   { href: "/products/kartlik", label: "Kartlık" },

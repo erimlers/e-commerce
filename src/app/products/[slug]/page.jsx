@@ -19,20 +19,20 @@ export default async function ProductDetailPage({ params }) {
 
   return (
     <StorefrontShell>
-      <main className="grid gap-12 pb-24 pt-4 md:grid-cols-2">
-        <div className="aspect-[4/5] bg-ink/5">
+      <main className="grid gap-10 pb-24 pt-8 md:grid-cols-2 md:gap-14 md:pt-12">
+        <div className="border border-olive/15 bg-ink/5">
           {image ? (
-            <img src={image} alt={product.name} className="h-full w-full object-cover" />
+            <img src={image} alt={product.name} className="aspect-[4/5] h-full w-full object-cover" />
           ) : null}
         </div>
-        <div className="md:pt-8">
-          <p className="font-sans text-xs tracking-[0.3em] text-metal uppercase">CALDER</p>
+        <div className="md:pt-4">
+          <p className="font-sans text-xs tracking-[0.3em] text-olive uppercase">CALDER</p>
           <h1 className="mt-3 font-serif text-5xl">{product.name}</h1>
           <p className="mt-4 font-sans text-lg">{formatPrice(product.price, product.currency)}</p>
           <p className="mt-8 max-w-md font-sans text-sm leading-7 text-metal">{product.story}</p>
-          <ul className="mt-8 space-y-2 font-sans text-sm">
+          <ul className="mt-8 space-y-0 border-y border-olive/15 font-sans text-sm">
             {product.variants.map((variant) => (
-              <li key={variant.sku} className="flex justify-between border-b border-ink/10 py-2">
+              <li key={variant.sku} className="flex justify-between border-b border-olive/10 py-3 last:border-b-0">
                 <span>
                   {variant.color}
                   {variant.size ? ` · ${variant.size}` : ""}

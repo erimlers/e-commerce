@@ -13,10 +13,13 @@ export default async function ProductsPage() {
 
   return (
     <StorefrontShell>
-      <main className="pb-28 pt-12">
-        <h1 className="font-serif text-5xl md:text-6xl">Koleksiyon</h1>
-        <p className="mt-4 max-w-lg font-sans text-sm leading-7 text-metal">Altı obje. Filtre yok. Her parça aynı dikiş dili.</p>
-        <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+      <main className="pb-24 pt-12 md:pt-16">
+        <p className="font-sans text-xs tracking-[0.28em] text-olive uppercase">Mağaza</p>
+        <h1 className="mt-3 font-serif text-4xl md:text-6xl">Ürünler</h1>
+        <p className="mt-4 max-w-lg font-sans text-sm leading-7 text-metal">
+          Altı obje. Filtre yok. Her parça aynı dikiş dili.
+        </p>
+        <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {products.length ? (
             products.map((product) => <ProductCard key={product.id} product={product} />)
           ) : (
