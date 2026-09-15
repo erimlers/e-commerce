@@ -77,7 +77,7 @@ export const catalogProducts = [
     price: 320000,
     currency: "TRY",
     images: ["https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=80"],
-    bestseller: false,
+    bestseller: true,
     variants: [
       { sku: "PASS-INK", color: "Mürekkep", stock: 11 },
       { sku: "PASS-SOIL", color: "Toprak", stock: 11 },

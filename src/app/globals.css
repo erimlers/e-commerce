@@ -71,6 +71,11 @@ button.promo-dot {
   border-radius: 999px;
 }
 
+.card-btn {
+  min-height: 2.4rem;
+  border-radius: 999px;
+}
+
 @media (hover: none) {
   button:active,
   a:active {
