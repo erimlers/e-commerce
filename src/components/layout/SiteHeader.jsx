@@ -11,6 +11,9 @@ export function SiteHeader() {
         <Link href="/products" className="hover:text-ink">
           Koleksiyon
         </Link>
+        <Link href="/cart" className="hover:text-ink">
+          Sepet
+        </Link>
         <AuthNav />
       </nav>
     </header>

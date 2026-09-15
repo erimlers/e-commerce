@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import { AddToCart } from "@/components/cart/AddToCart";
 import { api } from "@/lib/api";
 import { formatPrice } from "@/lib/money";
 
@@ -41,6 +42,7 @@ export default async function ProductDetailPage({ params }) {
               </li>
             ))}
           </ul>
+          <AddToCart product={product} />
         </div>
       </main>
     </div>
