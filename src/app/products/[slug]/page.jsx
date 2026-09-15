@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { SiteHeader } from "@/components/layout/SiteHeader";
+import { StorefrontShell } from "@/components/layout/StorefrontShell";
 import { AddToCart } from "@/components/cart/AddToCart";
 import { api } from "@/lib/api";
 import { formatPrice } from "@/lib/money";
@@ -18,9 +18,8 @@ export default async function ProductDetailPage({ params }) {
   const image = product.images?.[0];
 
   return (
-    <div>
-      <SiteHeader />
-      <main className="grid gap-12 px-6 pb-24 pt-4 md:grid-cols-2 md:px-12">
+    <StorefrontShell>
+      <main className="grid gap-12 px-6 pb-24 pt-4 md:grid-cols-2 md:px-16">
         <div className="aspect-[4/5] bg-ink/5">
           {image ? (
             <img src={image} alt={product.name} className="h-full w-full object-cover" />
@@ -45,6 +44,6 @@ export default async function ProductDetailPage({ params }) {
           <AddToCart product={product} />
         </div>
       </main>
-    </div>
+    </StorefrontShell>
   );
 }

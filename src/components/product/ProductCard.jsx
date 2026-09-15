@@ -16,8 +16,8 @@ export function ProductCard({ product }) {
             />
           ) : null}
         </div>
-        <div className="mt-4 flex items-baseline justify-between gap-4">
-          <h2 className="font-serif text-2xl">{product.name}</h2>
+        <div className="mt-5 flex items-baseline justify-between gap-4">
+          <h2 className="font-serif text-2xl tracking-wide">{product.name}</h2>
           <p className="font-sans text-sm text-metal">{formatPrice(product.price, product.currency)}</p>
         </div>
       </Link>

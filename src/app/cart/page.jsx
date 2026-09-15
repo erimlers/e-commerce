@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { SiteHeader } from "@/components/layout/SiteHeader";
+import { StorefrontShell } from "@/components/layout/StorefrontShell";
 import { api } from "@/lib/api";
 import { formatPrice } from "@/lib/money";
 
@@ -43,9 +43,8 @@ export default function CartPage() {
   }
 
   return (
-    <div>
-      <SiteHeader />
-      <main className="px-6 py-12 md:px-12">
+    <StorefrontShell>
+      <main className="px-6 py-12 md:px-16">
         <h1 className="font-serif text-4xl">Sepet</h1>
         {error ? <p className="mt-4 font-sans text-sm text-red-800">{error}</p> : null}
         {!cart ? (
@@ -95,6 +94,6 @@ export default function CartPage() {
           </div>
         )}
       </main>
-    </div>
+    </StorefrontShell>
   );
 }

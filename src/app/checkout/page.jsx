@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { SiteHeader } from "@/components/layout/SiteHeader";
+import { StorefrontShell } from "@/components/layout/StorefrontShell";
 import { api } from "@/lib/api";
 
 export default function CheckoutPage() {
@@ -44,9 +44,8 @@ export default function CheckoutPage() {
   const fieldClass = "mt-2 w-full border border-ink/15 bg-transparent px-3 py-2 outline-none focus:border-ink";
 
   return (
-    <div>
-      <SiteHeader />
-      <main className="px-6 py-12 md:px-12">
+    <StorefrontShell>
+      <main className="px-6 py-12 md:px-16">
         <h1 className="font-serif text-4xl">Checkout</h1>
         <p className="mt-3 max-w-md font-sans text-sm text-metal">
           Ödeme alınmaz. Sipariş kaydı oluşur, stok düşer.
@@ -74,6 +73,6 @@ export default function CheckoutPage() {
           </button>
         </form>
       </main>
-    </div>
+    </StorefrontShell>
   );
 }

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { SiteHeader } from "@/components/layout/SiteHeader";
+import { StorefrontShell } from "@/components/layout/StorefrontShell";
 import { api } from "@/lib/api";
 import { formatPrice } from "@/lib/money";
 
@@ -29,9 +29,8 @@ export default function OrderDetailPage() {
   }, [params.id, router]);
 
   return (
-    <div>
-      <SiteHeader />
-      <main className="px-6 py-12 md:px-12">
+    <StorefrontShell>
+      <main className="px-6 py-12 md:px-16">
         {!order ? (
           <p className="font-sans text-sm text-metal">Yükleniyor…</p>
         ) : (
@@ -58,6 +57,6 @@ export default function OrderDetailPage() {
           </>
         )}
       </main>
-    </div>
+    </StorefrontShell>
   );
 }

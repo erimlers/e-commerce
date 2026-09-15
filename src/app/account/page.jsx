@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { SiteHeader } from "@/components/layout/SiteHeader";
+import { StorefrontShell } from "@/components/layout/StorefrontShell";
 import { api } from "@/lib/api";
 
 export default function AccountPage() {
@@ -16,9 +16,8 @@ export default function AccountPage() {
   }, [router]);
 
   return (
-    <div>
-      <SiteHeader />
-      <main className="px-6 py-16 md:px-12">
+    <StorefrontShell>
+      <main className="px-6 py-16 md:px-16">
         <h1 className="font-serif text-4xl">Hesap</h1>
         {user ? (
           <p className="mt-6 font-sans text-sm text-metal">
@@ -28,6 +27,6 @@ export default function AccountPage() {
           <p className="mt-6 font-sans text-sm text-metal">Yükleniyor…</p>
         )}
       </main>
-    </div>
+    </StorefrontShell>
   );
 }
