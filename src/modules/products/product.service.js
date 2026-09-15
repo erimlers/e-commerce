@@ -16,3 +16,11 @@ export async function getProductBySlug(slug) {
   }
   return product;
 }
+
+export async function getProductById(id) {
+  const product = await Product.findById(id).lean();
+  if (!product) {
+    throw new HttpError(404, "Ürün bulunamadı");
+  }
+  return product;
+}
