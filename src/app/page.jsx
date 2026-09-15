@@ -14,7 +14,7 @@ export default async function HomePage() {
 
   return (
     <StorefrontShell>
-      <section className="px-6 pb-28 pt-20 md:px-16 md:pt-28">
+      <section className="pb-28 pt-20 md:pt-28">
         <p className="font-sans text-[11px] tracking-[0.42em] text-metal uppercase">Leather atelier</p>
         <h1 className="mt-6 max-w-3xl font-serif text-7xl font-medium leading-[0.9] tracking-wide md:text-9xl">
           CALDER
@@ -23,7 +23,7 @@ export default async function HomePage() {
           Unisex deri objeler. Az parça, uzun ömür. Kartlık, cüzdan, kemer — her gün taşınan şeyler.
         </p>
       </section>
-      <section className="px-6 pb-28 md:px-16">
+      <section className="pb-28">
         <div className="mb-12 flex items-end justify-between">
           <h2 className="font-serif text-3xl md:text-4xl">Öne çıkanlar</h2>
           <Link href="/products" className="font-sans text-sm text-metal transition hover:text-ink">

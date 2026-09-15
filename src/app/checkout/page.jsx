@@ -45,7 +45,7 @@ export default function CheckoutPage() {
 
   return (
     <StorefrontShell>
-      <main className="px-6 py-12 md:px-16">
+      <main className="py-12">
         <h1 className="font-serif text-4xl">Checkout</h1>
         <p className="mt-3 max-w-md font-sans text-sm text-metal">
           Ödeme alınmaz. Sipariş kaydı oluşur, stok düşer.

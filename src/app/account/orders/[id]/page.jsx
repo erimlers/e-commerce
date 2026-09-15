@@ -30,7 +30,7 @@ export default function OrderDetailPage() {
 
   return (
     <StorefrontShell>
-      <main className="px-6 py-12 md:px-16">
+      <main className="py-12">
         {!order ? (
           <p className="font-sans text-sm text-metal">Yükleniyor…</p>
         ) : (

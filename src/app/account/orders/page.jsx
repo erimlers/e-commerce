@@ -27,7 +27,7 @@ export default function OrdersPage() {
 
   return (
     <StorefrontShell>
-      <main className="px-6 py-12 md:px-16">
+      <main className="py-12">
         <h1 className="font-serif text-4xl">Siparişlerim</h1>
         {!orders ? (
           <p className="mt-8 font-sans text-sm text-metal">Yükleniyor…</p>

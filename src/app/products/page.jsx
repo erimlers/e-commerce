@@ -13,7 +13,7 @@ export default async function ProductsPage() {
 
   return (
     <StorefrontShell>
-      <main className="px-6 pb-28 pt-12 md:px-16">
+      <main className="pb-28 pt-12">
         <h1 className="font-serif text-5xl md:text-6xl">Koleksiyon</h1>
         <p className="mt-4 max-w-lg font-sans text-sm leading-7 text-metal">Altı obje. Filtre yok. Her parça aynı dikiş dili.</p>
         <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">

@@ -17,7 +17,7 @@ export default function AccountPage() {
 
   return (
     <StorefrontShell>
-      <main className="px-6 py-16 md:px-16">
+      <main className="py-16">
         <h1 className="font-serif text-4xl">Hesap</h1>
         {user ? (
           <p className="mt-6 font-sans text-sm text-metal">

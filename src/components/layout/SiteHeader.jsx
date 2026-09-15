@@ -41,7 +41,11 @@ export function SiteHeader() {
             </Link>
             <nav className="hidden flex-wrap items-center gap-5 md:flex lg:gap-7" aria-label="Mağaza">
               {shopNav.map((item) => (
-                <Link key={item.href} href={item.href} className={navClass(pathname === item.href)}>
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={navClass(item.href === "/products" ? pathname.startsWith("/products") : pathname === item.href)}
+                >
                   {item.label}
                 </Link>
               ))}

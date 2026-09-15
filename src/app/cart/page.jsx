@@ -72,7 +72,7 @@ export default function CartPage() {
 
   return (
     <StorefrontShell>
-      <main className="px-6 py-12 md:px-16">
+      <main className="py-12">
         <h1 className="font-serif text-4xl">Sepet</h1>
         {error ? <p className="mt-4 font-sans text-sm text-red-800">{error}</p> : null}
         {!cart ? (

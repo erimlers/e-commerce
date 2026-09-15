@@ -19,7 +19,7 @@ export default async function ProductDetailPage({ params }) {
 
   return (
     <StorefrontShell>
-      <main className="grid gap-12 px-6 pb-24 pt-4 md:grid-cols-2 md:px-16">
+      <main className="grid gap-12 pb-24 pt-4 md:grid-cols-2">
         <div className="aspect-[4/5] bg-ink/5">
           {image ? (
             <img src={image} alt={product.name} className="h-full w-full object-cover" />
