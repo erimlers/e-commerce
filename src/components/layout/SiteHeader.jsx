@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AuthNav } from "@/components/layout/AuthNav";
 
 export function SiteHeader() {
   return (
@@ -10,6 +11,7 @@ export function SiteHeader() {
         <Link href="/products" className="hover:text-ink">
           Koleksiyon
         </Link>
+        <AuthNav />
       </nav>
     </header>
   );
