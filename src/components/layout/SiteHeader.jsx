@@ -29,35 +29,41 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-30 bg-paper/80 pt-safe-t backdrop-blur-md">
-        <PageWidth className="py-3 md:py-4">
-          <div className="flex items-center justify-between gap-4 border border-olive/20 bg-paper/90 px-2 py-1.5 shadow-[inset_0_1px_0_rgb(255_255_255/0.45)] md:px-4">
-            <div className="flex min-w-0 items-center gap-2 md:gap-7">
-              <button
-                type="button"
-                className="touch-target md:hidden"
-                aria-label="Menü"
-                aria-expanded={menuOpen}
-                onClick={() => setMenuOpen(true)}
-              >
-                <IconMenu />
-              </button>
-              <Link href="/" className="shrink-0 font-serif text-[1.3rem] tracking-[0.28em] text-olive md:text-[1.65rem]">
-                CALDER
-              </Link>
-              <span className="hidden h-5 w-px bg-olive/20 md:block" aria-hidden="true" />
-              <nav className="hidden items-center gap-7 md:flex" aria-label="Mağaza">
-                {shopNav.map((item) => (
-                  <Link key={item.href} href={item.href} className={navClass(isActive(pathname, item.href))}>
-                    {item.label}
-                  </Link>
-                ))}
-              </nav>
-            </div>
-            <div className="flex items-center gap-1">
-              <AccountMenu user={user} onLogout={logout} />
-              <CartButton user={user} count={cartCount} />
-            </div>
+      <header className="sticky top-0 z-30 border-b border-olive/15 bg-paper pt-safe-t">
+        <PageWidth className="grid grid-cols-[1fr_auto_1fr] items-center py-2 md:flex md:justify-between md:py-3">
+          <div className="flex items-center justify-self-start md:gap-8">
+            <button
+              type="button"
+              className="touch-target md:hidden"
+              aria-label="Menü"
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen(true)}
+            >
+              <IconMenu />
+            </button>
+            <Link
+              href="/"
+              className="hidden shrink-0 font-serif text-[1.65rem] tracking-[0.28em] text-olive md:inline"
+            >
+              CALDER
+            </Link>
+            <nav className="hidden items-center gap-7 md:flex" aria-label="Mağaza">
+              {shopNav.map((item) => (
+                <Link key={item.href} href={item.href} className={navClass(isActive(pathname, item.href))}>
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+          <Link
+            href="/"
+            className="font-serif text-[1.3rem] tracking-[0.28em] text-olive md:hidden"
+          >
+            CALDER
+          </Link>
+          <div className="flex items-center justify-end justify-self-end">
+            <AccountMenu user={user} onLogout={logout} />
+            <CartButton user={user} count={cartCount} />
           </div>
         </PageWidth>
       </header>

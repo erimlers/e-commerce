@@ -31,18 +31,23 @@ export function AccountMenu({ user, onLogout, onNavigate }) {
 
   if (!user) {
     return (
-      <Link
-        href="/login"
-        onClick={onNavigate}
-        className="hidden h-touch items-center rounded-full px-4 font-sans text-sm text-olive md:inline-flex"
-      >
-        Giriş
-      </Link>
+      <>
+        <Link href="/login" onClick={onNavigate} className="touch-target text-ink md:hidden" aria-label="Giriş">
+          <IconUser />
+        </Link>
+        <Link
+          href="/login"
+          onClick={onNavigate}
+          className="hidden h-touch items-center px-4 font-sans text-sm text-olive md:inline-flex"
+        >
+          Giriş
+        </Link>
+      </>
     );
   }
 
   return (
-    <div ref={rootRef} className="relative hidden md:block">
+    <div ref={rootRef} className="relative">
       <button
         type="button"
         className="touch-target text-ink"

@@ -8,6 +8,7 @@ export function CartButton({ user, count }) {
     <Link
       href="/cart"
       className="relative inline-flex h-touch items-center gap-2 px-2 font-sans text-sm text-ink md:px-3"
+      aria-label="Sepet"
     >
       <span className="relative inline-flex">
         <IconBag />
@@ -17,7 +18,7 @@ export function CartButton({ user, count }) {
           </span>
         ) : null}
       </span>
-      <span>Sepet</span>
+      <span className="hidden md:inline">Sepet</span>
     </Link>
   );
 }
