@@ -1,29 +1,29 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #f4f1ea;
-  --color-ink: #1c1917;
-  --color-metal: #8a8175;
+  --color-paper: #ece7db;
+  --color-ink: #1f241c;
+  --color-metal: #7a7c72;
+  --color-olive: #3f4f36;
+  --color-olive-soft: #dfe6d4;
   --font-serif: var(--font-calder-serif), ui-serif, Georgia, serif;
   --font-sans: var(--font-calder-sans), ui-sans-serif, system-ui, sans-serif;
 
-  --radius-xs: 0.75rem;
-  --radius-sm: 1rem;
-  --radius-md: 1.25rem;
-  --radius-lg: 1.5rem;
-  --radius-xl: 1.75rem;
-  --radius-2xl: 2.25rem;
-  --radius-3xl: 2.75rem;
-  --radius-4xl: 3.25rem;
+  --radius-xs: 0.5rem;
+  --radius-sm: 0.75rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 1.75rem;
 
   --spacing-touch: 2.75rem;
+  --spacing-page: 80rem;
   --spacing-safe-t: env(safe-area-inset-top, 0px);
   --spacing-safe-r: env(safe-area-inset-right, 0px);
   --spacing-safe-b: env(safe-area-inset-bottom, 0px);
   --spacing-safe-l: env(safe-area-inset-left, 0px);
 
-  --shadow-soft: 0 8px 28px rgb(28 25 23 / 0.08);
-  --shadow-sheet: 0 -12px 40px rgb(28 25 23 / 0.12);
+  --shadow-soft: 0 8px 28px rgb(31 36 28 / 0.08);
 }
 
 html,
@@ -45,7 +45,7 @@ body {
 }
 
 ::selection {
-  background: var(--color-ink);
+  background: var(--color-olive);
   color: var(--color-paper);
 }
 
@@ -77,4 +77,10 @@ textarea {
   align-items: center;
   justify-content: center;
   border-radius: 999px;
+}
+
+@utility page-width {
+  width: 100%;
+  max-width: var(--spacing-page);
+  margin-inline: auto;
 }
