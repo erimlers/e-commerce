@@ -26,6 +26,29 @@
   --shadow-soft: 0 8px 28px rgb(31 36 28 / 0.08);
 }
 
+@keyframes site-header-in {
+  from {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 0 0 rgb(31 36 28 / 0);
+    background-color: var(--color-paper);
+  }
+  to {
+    transform: translateY(0);
+    box-shadow: 0 12px 36px rgb(31 36 28 / 0.12);
+    background-color: color-mix(in srgb, var(--color-paper) 78%, transparent);
+  }
+}
+
+.site-header-scrolled {
+  animation: site-header-in 0.5s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header-scrolled {
+    animation: none;
+  }
+}
+
 html,
 body {
   min-height: 100%;

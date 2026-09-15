@@ -2,6 +2,7 @@ import Link from "next/link";
 import { StorefrontShell } from "@/components/layout/StorefrontShell";
 import { PromoCarousel } from "@/components/home/PromoCarousel";
 import { TrustStrip } from "@/components/home/TrustStrip";
+import { AtelierBand } from "@/components/home/AtelierBand";
 import { CategoryCard } from "@/components/product/CategoryCard";
 import { ProductCard } from "@/components/product/ProductCard";
 import { catalogCategories, getBestsellers } from "@/lib/catalog";
@@ -32,7 +33,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="pb-14 md:pb-16">
+      <AtelierBand />
+
+      <section className="py-12 md:py-14">
         <SectionHeading
           eyebrow="Müşteri favorileri"
           title="Çok satanlar"
