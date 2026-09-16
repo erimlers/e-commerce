@@ -10,5 +10,8 @@ export function serializeProduct(doc) {
     variants: doc.variants,
     featured: doc.featured,
     published: doc.published,
+    createdAt: doc.createdAt ? new Date(doc.createdAt).toISOString() : undefined,
+    rating: Number(doc.rating) > 0 ? Number(doc.rating) : 0,
+    reviewCount: Number(doc.reviewCount) > 0 ? Number(doc.reviewCount) : 0,
   };
 }
