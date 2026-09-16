@@ -46,19 +46,17 @@ export default async function ProductsPage({ searchParams }) {
     <StorefrontShell>
       <main className="pb-24 pt-8 md:pt-10">
         <div className="grid gap-6 lg:grid-cols-[16.5rem_minmax(0,1fr)] lg:items-start lg:gap-8">
-          <aside className="hidden lg:block lg:self-start">
-            <div className="sticky top-[10.25rem] z-10">
-              <div className="max-h-[calc(100dvh-11rem)] overflow-y-auto">
-                <Suspense fallback={<div className="h-64 rounded-2xl bg-olive-soft/30" aria-hidden="true" />}>
-                  <ProductFilters boxed />
-                </Suspense>
-              </div>
+          <aside className="hidden lg:sticky lg:top-[10.25rem] lg:z-10 lg:block lg:self-start">
+            <div className="max-h-[calc(100dvh-11rem)] overflow-y-auto">
+              <Suspense fallback={<div className="h-64 rounded-2xl bg-olive-soft/30" aria-hidden="true" />}>
+                <ProductFilters boxed />
+              </Suspense>
             </div>
           </aside>
 
           <div className="min-w-0">
-            <h1 className="font-serif text-2xl tracking-wide md:text-[1.75rem]">{title}</h1>
-            <p className="mt-1.5 max-w-lg font-sans text-sm leading-6 text-metal">{intro}</p>
+            <h1 className="font-serif text-3xl tracking-wide md:text-4xl">{title}</h1>
+            <p className="mt-2 max-w-lg font-sans text-base leading-7 text-metal">{intro}</p>
 
             <div className="mb-4 mt-5 flex items-center justify-between gap-3">
               <div className="flex items-center gap-3">
@@ -73,7 +71,7 @@ export default async function ProductsPage({ searchParams }) {
                 <ProductSort />
               </Suspense>
             </div>
-            <div className="grid grid-cols-2 gap-2.5 sm:gap-3 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
               {products.length ? (
                 products.map((product) => <ProductCard key={product.id} product={product} />)
               ) : (

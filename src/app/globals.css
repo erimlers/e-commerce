@@ -1,11 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #f7f5f1;
+  --color-paper: #ffffff;
   --color-ink: #1f241c;
   --color-metal: #5c5e56;
   --color-olive: #3f4f36;
   --color-olive-soft: #e7ebe1;
+  --color-star: #e8b423;
   --font-serif: var(--font-calder-serif), ui-serif, Georgia, serif;
   --font-sans: var(--font-calder-sans), ui-sans-serif, system-ui, sans-serif;
 
@@ -17,7 +18,7 @@
   --radius-2xl: 1.75rem;
 
   --spacing-touch: 2.75rem;
-  --spacing-page: 96rem;
+  --spacing-page: 80rem;
   --spacing-safe-t: env(safe-area-inset-top, 0px);
   --spacing-safe-r: env(safe-area-inset-right, 0px);
   --spacing-safe-b: env(safe-area-inset-bottom, 0px);
@@ -43,8 +44,29 @@
   animation: site-header-in 0.5s ease-out;
 }
 
+@keyframes announce-marquee {
+  from {
+    transform: translateX(-25%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.announce-marquee {
+  animation: announce-marquee 28s linear infinite;
+}
+
+.announce-marquee:hover {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .site-header-scrolled {
+    animation: none;
+  }
+
+  .announce-marquee {
     animation: none;
   }
 }
@@ -86,6 +108,18 @@ textarea {
   -webkit-tap-highlight-color: transparent;
 }
 
+input.search-input {
+  min-height: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+}
+
+select.sort-select {
+  min-height: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.75rem;
+}
+
 button.promo-dot {
   min-height: 0.5rem;
   width: 0.5rem;
@@ -95,8 +129,79 @@ button.promo-dot {
 }
 
 .card-btn {
-  min-height: 2.4rem;
+  min-height: 2.5rem;
+  padding-inline: 0.75rem;
   border-radius: 999px;
+}
+
+button.sort-trigger {
+  min-height: 2.5rem;
+  border-radius: 999px;
+}
+
+button.sort-option {
+  min-height: 2.25rem;
+  border-radius: 0;
+}
+
+input.filter-check {
+  min-width: 1rem;
+  min-height: 1rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.25rem;
+}
+
+input.price-step {
+  appearance: none;
+  -moz-appearance: textfield;
+  min-height: 2.5rem;
+  border-radius: 0;
+}
+
+input.price-step::-webkit-outer-spin-button,
+input.price-step::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+button.price-nudge {
+  min-width: 1.75rem;
+  min-height: 2.5rem;
+  width: 1.75rem;
+  border-radius: 0;
+  padding: 0;
+}
+
+button.gallery-thumb {
+  min-width: 4rem;
+  min-height: 4rem;
+  padding: 0;
+  border-radius: 0.5rem;
+}
+
+button.variant-card {
+  min-height: 4.25rem;
+  border-radius: 0.75rem;
+}
+
+button.qty-nudge {
+  min-width: 2.25rem;
+  min-height: 2.75rem;
+  width: 2.25rem;
+  border-radius: 0;
+  padding: 0;
+}
+
+button.accordion-trigger {
+  min-height: 3.75rem;
+  border-radius: 0;
+}
+
+@media (min-width: 640px) {
+  .card-btn {
+    min-height: 2.75rem;
+  }
 }
 
 @media (hover: none) {

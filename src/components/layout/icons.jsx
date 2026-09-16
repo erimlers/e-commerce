@@ -1,3 +1,6 @@
+export const iconCircleClass =
+  "touch-target border border-olive/20 text-ink transition hover:border-olive/40 hover:text-olive";
+
 export function IconBag({ className = "h-5 w-5" }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -51,6 +54,32 @@ export function IconChevronLeft({ className = "h-5 w-5" }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M14.5 6.5 9 12l5.5 5.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function IconSearch({ className = "h-4 w-4" }) {
+  return (
+    <svg className={className} width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="11" cy="11" r="6.25" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M16 16.5 20 20.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function IconFilter({ className = "h-4 w-4" }) {
+  return (
+    <svg className={className} width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function IconSort({ className = "h-4 w-4" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M8 7v10M8 7l-2.5 2.5M8 7l2.5 2.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M16 17V7M16 17l-2.5-2.5M16 17l2.5-2.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }

@@ -7,9 +7,15 @@ export const catalogProducts = [
     story: "Cebi şişirmeyen, dört kartlık gözü. Bitkisel tabaklanmış dana derisi, zamanla koyulaşır.",
     price: 390000,
     currency: "TRY",
-    images: ["https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=1600&q=80"],
+    images: [
+      "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1479064555552-3ef4979f8908?auto=format&fit=crop&w=1600&q=80",
+    ],
     bestseller: true,
     createdAt: "2025-11-02T10:00:00.000Z",
+    rating: 4.8,
+    reviewCount: 24,
     variants: [
       { sku: "CARD-INK", color: "Mürekkep", stock: 18 },
       { sku: "CARD-SOIL", color: "Toprak", stock: 14 },
@@ -23,9 +29,15 @@ export const catalogProducts = [
     story: "İnce bifold. Nakit, kart ve bir gizli göz. Dikişler eyer dikişi; kenarlar elle boyanmış.",
     price: 590000,
     currency: "TRY",
-    images: ["https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1600&q=80"],
+    images: [
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1600&q=80",
+    ],
     bestseller: true,
     createdAt: "2026-02-10T10:00:00.000Z",
+    rating: 4.9,
+    reviewCount: 31,
     variants: [
       { sku: "WALL-INK", color: "Mürekkep", stock: 12 },
       { sku: "WALL-SOIL", color: "Toprak", stock: 10 },
@@ -39,9 +51,15 @@ export const catalogProducts = [
     story: "Tek parça deri, fırçalanmış pirinç toka. Günlük ve gece aynı kemer.",
     price: 490000,
     currency: "TRY",
-    images: ["https://images.unsplash.com/photo-1479064555552-3ef4979f8908?auto=format&fit=crop&w=1600&q=80"],
+    images: [
+      "https://images.unsplash.com/photo-1479064555552-3ef4979f8908?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=1600&q=80",
+    ],
     bestseller: true,
     createdAt: "2026-03-20T10:00:00.000Z",
+    rating: 4.6,
+    reviewCount: 18,
     variants: [
       { sku: "BELT-INK-85", color: "Mürekkep", size: "85", stock: 8 },
       { sku: "BELT-INK-90", color: "Mürekkep", size: "90", stock: 8 },
@@ -55,9 +73,15 @@ export const catalogProducts = [
     story: "Küçük bir kayış, pirinç halka. Cebe takılır, ses çıkarmaz.",
     price: 190000,
     currency: "TRY",
-    images: ["https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1600&q=80"],
+    images: [
+      "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=1600&q=80",
+    ],
     bestseller: false,
     createdAt: "2026-05-01T10:00:00.000Z",
+    rating: 0,
+    reviewCount: 0,
     variants: [{ sku: "KEY-INK", color: "Mürekkep", stock: 24 }],
   },
   {
@@ -68,9 +92,15 @@ export const catalogProducts = [
     story: "Giriş holü için valet. Anahtar, saat, bozuk para. Kalın deri, dikilmiş kenar.",
     price: 450000,
     currency: "TRY",
-    images: ["https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1600&q=80"],
+    images: [
+      "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1479064555552-3ef4979f8908?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=80",
+    ],
     bestseller: false,
     createdAt: "2026-06-15T10:00:00.000Z",
+    rating: 4.2,
+    reviewCount: 7,
     variants: [{ sku: "TRAY-SOIL", color: "Toprak", stock: 9 }],
   },
   {
@@ -81,9 +111,15 @@ export const catalogProducts = [
     story: "Pasaport ve iki kart. Seyahat için tek parça; kartlıkla aynı dikiş dili.",
     price: 320000,
     currency: "TRY",
-    images: ["https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=80"],
+    images: [
+      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=1600&q=80",
+    ],
     bestseller: true,
     createdAt: "2026-08-01T10:00:00.000Z",
+    rating: 0,
+    reviewCount: 0,
     variants: [
       { sku: "PASS-INK", color: "Mürekkep", stock: 11 },
       { sku: "PASS-SOIL", color: "Toprak", stock: 11 },
@@ -126,8 +162,23 @@ export function getCatalogProduct(slug) {
   return catalogProducts.find((product) => product.slug === slug) || null;
 }
 
+export function productImages(product) {
+  const local = catalogProducts.find((item) => item.slug === product?.slug);
+  if (local?.images?.length) return local.images;
+  return (Array.isArray(product?.images) ? product.images : []).filter(Boolean);
+}
+
 export function getBestsellers() {
   return catalogProducts.filter((product) => product.bestseller);
+}
+
+export function productReview(product) {
+  const local = catalogProducts.find((item) => item.slug === product?.slug);
+  const rating = Number(product?.rating ?? local?.rating);
+  const count = Number(product?.reviewCount ?? local?.reviewCount);
+  const safeCount = Number.isFinite(count) && count > 0 ? count : 0;
+  const safeRating = Number.isFinite(rating) && rating > 0 ? rating : 0;
+  return { rating: safeRating, count: safeCount };
 }
 
 export function matchesQuery(product, query) {

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { IconClose } from "@/components/layout/icons";
-import { shopNav } from "@/lib/nav";
+import { categoryNav } from "@/lib/nav";
 
 export function MobileNav({ open, onClose, user, onLogout }) {
   const panelRef = useRef(null);
@@ -29,7 +29,7 @@ export function MobileNav({ open, onClose, user, onLogout }) {
   const linkClass = "block px-1 py-3 font-sans text-base text-ink";
 
   return (
-    <div className={`fixed inset-0 z-50 md:hidden ${open ? "" : "pointer-events-none"}`}>
+    <div className={`fixed inset-0 z-50 lg:hidden ${open ? "" : "pointer-events-none"}`}>
       <button
         type="button"
         tabIndex={open ? 0 : -1}
@@ -56,11 +56,14 @@ export function MobileNav({ open, onClose, user, onLogout }) {
           </button>
         </div>
         <nav className="flex flex-1 flex-col pt-2" aria-label="Mağaza">
-          {shopNav.map((item) => (
+          {categoryNav.map((item) => (
             <Link key={item.href} href={item.href} className={linkClass} onClick={onClose} tabIndex={open ? 0 : -1}>
               {item.label}
             </Link>
           ))}
+          <Link href="/about" className={linkClass} onClick={onClose} tabIndex={open ? 0 : -1}>
+            Hakkımızda
+          </Link>
           <div className="my-3 border-t border-olive/20" />
           {user ? (
             <>

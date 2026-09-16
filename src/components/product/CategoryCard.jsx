@@ -2,19 +2,18 @@ import Link from "next/link";
 
 export function CategoryCard({ category }) {
   return (
-    <Link href={category.href} className="group relative block overflow-hidden rounded-xl">
-      <div className="aspect-[3/4] overflow-hidden bg-olive-soft/30">
+    <Link href={category.href} className="group mx-auto flex w-full max-w-[10.5rem] flex-col items-center gap-2.5 md:max-w-[8rem]">
+      <span className="aspect-square w-full overflow-hidden rounded-full bg-olive-soft/30">
         <img
           src={category.image}
           alt=""
-          className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+          className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.06]"
         />
-      </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/10 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 p-3.5">
-        <h3 className="font-serif text-lg text-paper">{category.name}</h3>
-        <p className="mt-0.5 font-sans text-xs text-paper/80">{category.count} ürün</p>
-      </div>
+      </span>
+      <span className="text-center">
+        <h3 className="font-serif text-base leading-tight text-ink md:text-lg">{category.name}</h3>
+        <p className="mt-0.5 font-sans text-[11px] text-metal">{category.count} ürün</p>
+      </span>
     </Link>
   );
 }

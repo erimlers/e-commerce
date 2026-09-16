@@ -63,7 +63,7 @@ export function PromoCarousel() {
       >
         {promoSlides.map((item, slideIndex) => (
           <article key={item.href} className="relative min-w-full" aria-hidden={slideIndex !== index}>
-            <div className="relative h-[58vw] min-h-56 max-h-[32rem] md:h-[42vw] md:min-h-80 md:max-h-[36rem]">
+            <div className="relative h-[72vw] min-h-52 max-h-80 sm:h-[58vw] sm:max-h-[32rem] md:h-[42vw] md:min-h-80 md:max-h-[36rem]">
               <img src={item.image} alt={item.alt} className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-ink/25 to-ink/5" />
             </div>
@@ -72,14 +72,18 @@ export function PromoCarousel() {
       </div>
 
       <div className="pointer-events-none absolute inset-0">
-        <PageWidth className="flex h-full flex-col justify-end pb-8 md:pb-10">
-          <p className="font-sans text-[11px] tracking-[0.32em] text-paper/80 uppercase">{slide.eyebrow}</p>
-          <h2 className="mt-3 max-w-lg font-serif text-4xl leading-[0.95] text-paper md:text-6xl">{slide.title}</h2>
-          <p className="mt-4 max-w-md font-sans text-sm leading-6 text-paper/85 md:text-base">{slide.text}</p>
-          <div className="pointer-events-auto mt-6 flex flex-wrap items-center gap-3">
+        <PageWidth className="flex h-full flex-col justify-end pb-5 sm:pb-8 md:pb-10">
+          <p className="font-sans text-[10px] tracking-[0.28em] text-paper/80 uppercase sm:text-[11px] sm:tracking-[0.32em]">
+            {slide.eyebrow}
+          </p>
+          <h2 className="mt-2 max-w-lg font-serif text-[1.75rem] leading-[1.05] text-paper sm:mt-3 sm:text-4xl sm:leading-[0.95] md:text-6xl">
+            {slide.title}
+          </h2>
+          <p className="mt-3 max-w-md font-sans text-sm leading-6 text-paper/85 sm:mt-4 md:text-base">{slide.text}</p>
+          <div className="pointer-events-auto mt-4 flex flex-wrap items-center gap-2 sm:mt-6 sm:gap-3">
             <Link
               href={slide.href}
-              className="inline-flex min-h-touch items-center rounded-full bg-paper px-6 font-sans text-sm text-ink"
+              className="inline-flex min-h-10 items-center rounded-full bg-paper px-4 font-sans text-sm text-ink sm:min-h-touch sm:px-6"
             >
               {slide.cta}
             </Link>
@@ -102,7 +106,7 @@ export function PromoCarousel() {
               </button>
             </div>
           </div>
-          <div className="pointer-events-auto mt-6 flex w-fit items-center gap-2 rounded-full bg-ink/40 px-2.5 py-1.5">
+          <div className="pointer-events-auto mt-3 flex w-fit items-center gap-2 rounded-full bg-ink/40 px-2.5 py-1.5 sm:mt-6">
             {promoSlides.map((item, slideIndex) => (
               <button
                 key={item.href}

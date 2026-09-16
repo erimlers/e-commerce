@@ -1,14 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
 import { AccountMenu } from "@/components/layout/AccountMenu";
 import { CartButton } from "@/components/layout/CartButton";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { PageWidth } from "@/components/layout/PageWidth";
 import { IconMenu } from "@/components/layout/icons";
-import { shopNav } from "@/lib/nav";
+import { SearchField } from "@/components/layout/SearchField";
+import { categoryNav, utilityNav } from "@/lib/nav";
+import { listingHref } from "@/lib/shop";
 import { useStorefrontSession } from "@/hooks/useStorefrontSession";
 
 function navClass(active) {
@@ -17,9 +19,66 @@ function navClass(active) {
   }`;
 }
 
-function isActive(pathname, href) {
+function isUtilityActive(pathname, href) {
   if (href === "/products") return pathname.startsWith("/products");
   return pathname === href;
+}
+
+function isCategoryActive(pathname, selected, item) {
+  if (pathname !== "/products") return false;
+  const selectedIds = (selected || "").split(",").filter(Boolean);
+  if (item.category) return selectedIds.includes(item.category);
+  return selectedIds.length === 0;
+}
+
+function SearchFallback() {
+  return <div className="h-10 rounded-full bg-olive-soft/50" aria-hidden="true" />;
+}
+
+function CategoryStripFallback({ scrolled }) {
+  return (
+    <div className="hidden lg:block">
+      <PageWidth
+        className={`flex justify-center ${scrolled ? "py-2" : "py-2.5"}`}
+      >
+        <nav className="flex flex-nowrap items-center justify-center gap-x-5 overflow-x-auto lg:gap-x-6" aria-label="Kategoriler">
+          {categoryNav.map((item) => (
+            <Link key={item.href} href={item.href} className={navClass(false)}>
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+      </PageWidth>
+    </div>
+  );
+}
+
+function CategoryStrip({ scrolled }) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const selectedCategory = searchParams.get("category");
+
+  return (
+    <div className="hidden lg:block">
+      <PageWidth
+        className={`flex justify-center transition-[padding] duration-500 ease-out motion-reduce:transition-none ${
+          scrolled ? "py-2" : "py-2.5"
+        }`}
+      >
+        <nav className="flex flex-nowrap items-center justify-center gap-x-5 overflow-x-auto lg:gap-x-6" aria-label="Kategoriler">
+          {categoryNav.map((item) => (
+            <Link
+              key={item.href}
+              href={pathname === "/products" ? listingHref(searchParams, { category: item.category ?? "" }) : item.href}
+              className={navClass(isCategoryActive(pathname, selectedCategory, item))}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+      </PageWidth>
+    </div>
+  );
 }
 
 export function SiteHeader() {
@@ -49,14 +108,14 @@ export function SiteHeader() {
           }`}
         >
           <PageWidth
-            className={`grid grid-cols-[1fr_auto_1fr] items-center transition-[padding] duration-500 ease-out motion-reduce:transition-none md:flex md:justify-between ${
-              scrolled ? "py-1.5 md:py-2.5" : "py-2 md:py-3"
+            className={`grid grid-cols-[1fr_auto_1fr] items-center gap-3 transition-[padding] duration-500 ease-out motion-reduce:transition-none lg:grid-cols-[1fr_minmax(0,20rem)_1fr] lg:gap-6 ${
+              scrolled ? "pb-1.5 pt-3 lg:pb-2 lg:pt-3" : "pb-2 pt-3.5 lg:pb-2.5 lg:pt-4"
             }`}
           >
-            <div className="flex items-center justify-self-start md:gap-8">
+            <div className="flex items-center justify-self-start">
               <button
                 type="button"
-                className="touch-target md:hidden"
+                className="touch-target lg:hidden"
                 aria-label="Menü"
                 aria-expanded={menuOpen}
                 onClick={() => setMenuOpen(true)}
@@ -65,26 +124,45 @@ export function SiteHeader() {
               </button>
               <Link
                 href="/"
-                className="hidden shrink-0 font-serif text-[1.65rem] tracking-[0.28em] text-olive md:inline"
+                className="hidden shrink-0 font-serif text-[1.65rem] tracking-[0.28em] text-olive lg:inline"
               >
                 CALDER
               </Link>
-              <nav className="hidden items-center gap-7 md:flex" aria-label="Mağaza">
-                {shopNav.map((item) => (
-                  <Link key={item.href} href={item.href} className={navClass(isActive(pathname, item.href))}>
+            </div>
+            <Link href="/" className="font-serif text-[1.2rem] tracking-[0.22em] text-olive sm:text-[1.3rem] sm:tracking-[0.28em] lg:hidden">
+              CALDER
+            </Link>
+            <div className="hidden min-w-0 justify-self-stretch lg:block">
+              <Suspense fallback={<SearchFallback />}>
+                <SearchField className="w-full" />
+              </Suspense>
+            </div>
+            <div className="flex shrink-0 items-center justify-end justify-self-end gap-1.5 lg:gap-4">
+              <nav className="hidden items-center gap-4 lg:flex" aria-label="Mağaza">
+                {utilityNav.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={navClass(isUtilityActive(pathname, item.href))}
+                  >
                     {item.label}
                   </Link>
                 ))}
               </nav>
-            </div>
-            <Link href="/" className="font-serif text-[1.3rem] tracking-[0.28em] text-olive md:hidden">
-              CALDER
-            </Link>
-            <div className="flex items-center justify-end justify-self-end">
-              <AccountMenu user={user} onLogout={logout} />
-              <CartButton user={user} count={cartCount} />
+              <div className="flex items-center gap-2">
+                <AccountMenu user={user} onLogout={logout} />
+                <CartButton user={user} count={cartCount} />
+              </div>
             </div>
           </PageWidth>
+          <div className="px-4 pb-2.5 lg:hidden">
+            <Suspense fallback={<SearchFallback />}>
+              <SearchField />
+            </Suspense>
+          </div>
+          <Suspense fallback={<CategoryStripFallback scrolled={scrolled} />}>
+            <CategoryStrip scrolled={scrolled} />
+          </Suspense>
         </div>
       </header>
       <MobileNav open={menuOpen} onClose={() => setMenuOpen(false)} user={user} onLogout={logout} />
